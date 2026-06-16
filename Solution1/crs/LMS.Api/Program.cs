@@ -1,8 +1,5 @@
 
-using Lesson2.Repositories;
-using Lesson2.Services;
-
-namespace Lesson2
+namespace LMS.Api
 {
     public class Program
     {
@@ -18,16 +15,6 @@ namespace Lesson2
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
-
-            // Student uchun xizmatlarni DI konteynerga qo'shish
-            builder.Services.AddScoped<IStudentRepository, StudentRepository>();
-            builder.Services.AddScoped<IStudentService, StudentService>();
-
-            // Teacher uchun xizmatlarni DI konteynerga qo'shish (buni ham qo'shib keting, keyin xato bermasligi uchun)
-            builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
-            builder.Services.AddScoped<ITeacherService, TeacherService>();
-
-            // SHU QATORNING TEPASIDA BO'LISHI SHART:
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
